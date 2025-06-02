@@ -2,7 +2,7 @@ from openai import OpenAI
 from modelscope.msdatasets import MsDataset
 import json, threading, time, os
 
-API_KEY = 'sk-43255b71f5c842ceb1ef31ada994129a'
+API_KEY = 'YOUR_API_KEY'
 BASE_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1'
 MODEL_NAME = 'deepseek-r1'
 THREAD = 12
