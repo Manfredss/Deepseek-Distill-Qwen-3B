@@ -1,0 +1,8 @@
+datasets
+trl
+modelscope
+tensorboard
+openai
+peft
+addict
+-i https://mirrors.aliyun.com/pypi/simple/
