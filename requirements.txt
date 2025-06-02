@@ -1,4 +1,4 @@
-datasets
+datasets==2.18.0
 trl
 modelscope
 tensorboard
