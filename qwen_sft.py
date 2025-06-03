@@ -24,11 +24,11 @@ def load_distill_dataset():
     with open('distill_R1_results.json', 'r', encoding='utf-8') as f:
         for line in f:
             data = json.loads(line.strip())
-            sample = [{
+            sample = [
                 {'role': 'system', 'content': SYSTEM_PROMPT},
                 {'role': 'user', 'content': data['question']},
                 {'role': 'assistant', 'content': f'<think>{data['reasoning']}</think>{data['answer']}'}
-            }]
+            ]
             dataset['messages'].append(sample)
     return Dataset.from_dict(dataset)
 
