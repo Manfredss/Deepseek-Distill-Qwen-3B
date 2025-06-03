@@ -22,14 +22,14 @@ SYSTEM_PROMPT = '''
 def load_distill_dataset():
     dataset = {'messages': []}
     with open('distill_R1_results.json', 'r', encoding='utf-8') as f:
-        for line in f:
-            data = json.loads(line.strip())
+        data = json.load(f)
+        for data_ in data:
             sample = [
                 {'role': 'system', 'content': SYSTEM_PROMPT},
-                {'role': 'user', 'content': data['question']},
-                {'role': 'assistant', 'content': f'<think>{data['reasoning']}</think>{data['answer']}'}
+                {'role': 'user', 'content': data_['question']},
+                {'role': 'assistant', 'content': f'<think>{data_["reasoning"]}</think>{data_["answer"]}'}
             ]
-            dataset['messages'].append(sample)
+        dataset['messages'].append(sample)
     return Dataset.from_dict(dataset)
 
 model_name = 'Qwen/Qwen2.5-3B-Instruct'
